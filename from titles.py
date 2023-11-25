@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Created on Sat Nov 25 13:11:46 2023
+
+@author: ckettmayer
+"""
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
 Created on Fri Nov 24 20:43:05 2023
 
 @author: ckettmayer
@@ -13,7 +21,17 @@ import re
 
 titles = [['Quasi-Two-Dimensional Kolmogorov Flow: Bifurcations and Exact Coherent Structures'],
           ['Two-Dimensional Turbulence'],
-          ['Two dimensional turbulence: a physicist approach']]
+          ['Two dimensional turbulence: a physicist approach'],
+          ['Dynamics of a two-dimensional flow subject to steady electromagnetic forces'],
+          ['Pair Dispersion and Doubling Time Statistics in Two-Dimensional Turbulence'],
+          ['Experimental study of freely decaying two-dimensional turbulence.'],
+          ['Two-dimensional turbulence and dispersion in a freely decaying system.'],
+          ['Springer handbook of experimental fluid mechanics'],
+          ['Imaging vector fields using line integral convolution.'],
+          ['Braids of entangled particle trajectories.'],
+          ['Clustering of floaters on the free surface of a turbulent flow: An experimental study.'],
+          
+          ]
 
 # create CrossRef client
 cr = habanero.Crossref()
@@ -22,25 +40,19 @@ cr = habanero.Crossref()
 dois = []
 for i in titles:
     # look for article
-    query = i 
+    query = i
     results = cr.works(query=query)
     
     # retrieve first result and DOI if avalaible
     if results['status'] == 'ok' and results['message']['items']:
         article = results['message']['items'][0]
-        retrieved_title = article.get('title', '')
-        
-        # check if retrieved title match expected title
-        if i == retrieved_title:
-            doi = article.get('DOI')
-            if doi:
-                dois.append(doi)
-                # print("DOI:", doi)
-            else:
-                dois.append('doi not found')
-                # print("No se encontró el DOI.")
-        else: 
-            dois.append('title mismatch')
+        doi = article.get('DOI')
+        if doi:
+            dois.append(doi)
+            # print("DOI:", doi)
+        else:
+            dois.append('doi not found')
+            # print("No se encontró el DOI.")
     else:
         dois.append('crossref results not found')
         # print("No se encontraron resultados en CrossRef.")    
@@ -48,10 +60,9 @@ for i in titles:
     
 # retrieve bibtex data from DOI
 bibtex = []
-
 for j in dois:
-     
-    if j=='doi not found' or j=='title mismatch' or j=='crossref result not found':
+    
+    if j=='doi not found' or j=='crossref result not found':
         bibtex.append(j)
     else:  
         article_info = habanero.cn.content_negotiation(j)
@@ -66,7 +77,7 @@ for j in dois:
         text_clean = "\n".join(line for line in text_clean.splitlines() if line.strip())
         
         bibtex.append(text_clean)
-    
+
 
 # print bibtex for all ref
 for k in range(len(bibtex)):
