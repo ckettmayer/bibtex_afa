@@ -19,18 +19,15 @@ import habanero
 import re
 
 
-titles = [['Quasi-Two-Dimensional Kolmogorov Flow: Bifurcations and Exact Coherent Structures'],
-          ['Two-Dimensional Turbulence'],
-          ['Two dimensional turbulence: a physicist approach'],
-          ['Dynamics of a two-dimensional flow subject to steady electromagnetic forces'],
-          ['Pair Dispersion and Doubling Time Statistics in Two-Dimensional Turbulence'],
-          ['Experimental study of freely decaying two-dimensional turbulence.'],
-          ['Two-dimensional turbulence and dispersion in a freely decaying system.'],
-          ['Springer handbook of experimental fluid mechanics'],
-          ['Imaging vector fields using line integral convolution.'],
-          ['Braids of entangled particle trajectories.'],
-          ['Clustering of floaters on the free surface of a turbulent flow: An experimental study.'],
-          
+titles = [['A Review of Semiconductor Based Ionising Radiation Sensors Used in Harsh Radiation Environments and Their Applications.'],
+          ['Advances in gamma radiation detection systems for emergency radiation monitoring.'],
+          ['Ionizing Radiation Monitoring Technology at the Verge of Internet of Things. '],
+          ['CMOS APS detector characterization for quantitative X-ray imaging.'],
+          ['Resolution and noise properties of scintillator coated X-ray detectors.'],
+          ['Characterization of the VARIAN®PaxScan 2020+ flat panel detector for quantitative X-ray imaging'],
+          ['Caracterización de la respuesta del espectrómetro Amptek xr-100-cdte mediante simulación monte carlo con el codigo PENELOPE'],
+          ['A new TCAD simulation method for direct CMOS electron detectors optimization. '],
+          ['A combined approach to the simulation of ionizing radiation effects in silicon devices. '],
           ]
 
 # create CrossRef client
